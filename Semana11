@@ -1,0 +1,39 @@
+# 🧠 Informe de Mejora Técnica – Reto de Producto: Vibe-Coding Avanzado
+
+## ✅ Nueva funcionalidad implementada
+
+Se implementó un **sistema de clasificación automática de leads con inteligencia artificial**, que:
+
+- Recibe un mensaje por API (`POST /nuevo-mensaje`)
+- Usa GPT-4 (OpenAI API) para analizar el texto del usuario
+- Clasifica el mensaje como **“caliente”**, **“tibio”** o **“frío”**, según el nivel de interés
+
+## 🛠️ Detalles técnicos
+
+- Se utilizó `Node.js` con `Express` para levantar un servidor backend
+- Se integró la API de OpenAI con el paquete `openai`
+- Se usa un archivo `.env` para gestionar la API Key de forma segura
+- Toda la funcionalidad está en dos archivos:
+  - `index.cjs`: servidor con endpoint `/nuevo-mensaje`
+  - `leadScoring.cjs`: lógica de clasificación con IA
+
+## 🚀 Cómo se probó
+
+- Se enviaron mensajes de prueba vía `curl` o Postman
+- El servidor responde con un `leadScore` que refleja el interés del mensaje
+- Ejemplo:
+
+```bash
+curl -X POST http://localhost:3000/nuevo-mensaje \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Estoy muy interesado en el programa de IA para makers"}'
+
+
+
+Mejora en el producto
+
+Esta funcionalidad permite automatizar la calificación de leads, reduciendo trabajo manual
+
+Aporta inteligencia comercial al flujo de atracción de makers
+
+Es modular y puede integrarse con WhatsApp, LinkedIn, email o CRM en próximos pasos
